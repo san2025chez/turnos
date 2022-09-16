@@ -1,0 +1,74 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "8b2bbdd9-67fa-4239-b890-885b42fc57ac",
+                "documentation": "InactivarMonedero",
+                "method": "post",
+                "endpoint": "api/EmisorCta/InactivarMonedero",
+                "responses": [
+                    {
+                        "uuid": "fec4c6dd-c3bc-46ff-a2a4-448ad628f0d0",
+                        "body": "{\n  \"InactivarMonederoResult\": {\n    \"Resultado\": true,\n    \"DescripcionRechazo\": \"\",\n    \"CodMotivoRechazo\": 0\n  }\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "64489334-53f5-4e48-8fed-4352daa1258f",
+                        "body": "{\n  \"InactivarMonederoResult\": {\n    \"Resultado\": false,\n    \"DescripcionRechazo\": \"Teléfono no suscrito al servicio.\",\n    \"CodMotivoRechazo\": 83020\n  }\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Error case (Numero no suscrito)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [
+                            {
+                                "target": "header",
+                                "modifier": "Valid",
+                                "value": "true",
+                                "operator": "equals"
+                            },
+                            {
+                                "target": "header",
+                                "modifier": "Repeated",
+                                "value": "true",
+                                "operator": "equals"
+                            }
+                        ],
+                        "rulesOperator": "AND",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "feccd875-61a4-4052-a6f3-c7a6e7c1216c",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

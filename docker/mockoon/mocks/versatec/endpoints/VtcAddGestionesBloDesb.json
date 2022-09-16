@@ -1,0 +1,47 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "ad317cdc-339a-4933-999c-e4e9270d69ed",
+                "documentation": "VtcAddGestionesBloDesb",
+                "method": "post",
+                "endpoint": "api/EmisorCta/VtcAddGestionesBloDesb",
+                "responses": [
+                    {
+                        "uuid": "180f7355-b1ce-4959-a68b-0fa19708def5",
+                        "body": "{\n  \"InfoTran\": {\n    \"IsError\": false,\n    \"ReturnMessage\": \"OK\",\n    \"ErrorCode\": \"0\",\n    \"IsAuthenicated\": true,\n    \"TipoError\": 5,\n    \"ValidationErrors\": {},\n    \"ErrorLog\": \"\"\n  }\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "a23b942c-2b93-4e96-9aad-967a24456be7",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

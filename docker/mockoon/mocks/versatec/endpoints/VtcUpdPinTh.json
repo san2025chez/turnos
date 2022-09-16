@@ -1,0 +1,47 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "dcacdc4d-87b2-4dac-be18-9cc131542157",
+                "documentation": "VtcUpdPinTh",
+                "method": "post",
+                "endpoint": "api/EmisorCta/VtcUpdPinTh",
+                "responses": [
+                    {
+                        "uuid": "8252c034-ae4c-4a15-9b46-74ea76a2a229",
+                        "body": "{\n  \"InfoTran\": {\n    \"IsError\": false,\n    \"ReturnMessage\": \"OK\",\n    \"ErrorCode\": \"0\",\n    \"IsAuthenicated\": true,\n    \"TipoError\": 5,\n    \"ValidationErrors\": {},\n    \"ErrorLog\": \"\"\n  }\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "72d6be4b-732a-4158-96ed-a37702873ae6",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

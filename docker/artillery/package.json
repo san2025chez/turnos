@@ -1,0 +1,16 @@
+{
+  "name": "0mn1-backend-services-artillery",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "artillery": "artillery"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "artillery": "^1.6.2"
+  }
+  
+}

@@ -1,0 +1,22 @@
+{
+    "requires": true,
+    "lockfileVersion": 1,
+    "dependencies": {
+        "@mockoon/cli": "^1.5.1",
+        "express": "^4.17.1",
+        "typescript": "^4.5.5"
+    },
+    "name": "mocker",
+    "version": "1.0.0",
+    "description": "mocker",
+    "main": "versatec-mock.js",
+    "directories": {
+        "lib": "lib"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC"
+}

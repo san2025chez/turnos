@@ -1,0 +1,2372 @@
+{
+	"info": {
+		"_postman_id": "a88f3704-70e3-4d2e-b92a-52b14a32cb3e",
+		"name": "OMNI - VersatecMock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Entrega #1",
+			"item": [
+				{
+					"name": "token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set('versatecToken', jsonData.access_token)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "usr_OMNI",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "Ojo123*",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "100033",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "IBITT",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "Ojo123*",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "scope",
+									"value": "100003",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VtcPreRegistroTH",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Repeated",
+								"value": "true",
+								"description": "It is a repeated request??",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "Valid",
+								"value": "true",
+								"description": "it is a valid request?",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TipoIdentificacion\": 1,\r\n  \"NoIdentificacion\": \"01-1610-9000\",\r\n  \"PrimerNombre\": \"HAROLD\",\r\n  \"SegundoNombre\": \"PAUL\",\r\n  \"PrimerApellido\": \"SANDOVAL\",\r\n  \"SegundoApellido\": \"PEÑA\",\r\n  \"ApeCasada\": \"\",\r\n  \"Nacionalidad\": \"NI\",\r\n  \"CodigoCliente\": \"02500001\",\r\n  \"NombreTarjeta\": \"HAROLD SANDOVAL AAA\",\r\n  \"Direccion\": \"ZONA CENTRA 1, CALLE CENTRAL, CASA 0001\",\r\n  \"Telefono\": \"50622558888\",\r\n  \"Celular\": \"5068558888\",\r\n  \"Correo\": \"HSANDOVAL@VERSATECENLINEA.COM\",\r\n  \"FechaNacimiento\": \"19900809\",\r\n  \"Sexo\": \"M\",\r\n  \"Profesion\": \"000\",\r\n  \"ActividadEconomica\": \"1860\",\r\n  \"Sucursal\": \"01\",\r\n  \"Promotor\": \"4000000000\",\r\n  \"LugarEntrega\": \"01\",\r\n  \"CuentaBanco\": \" \",\r\n  \"MontoSolicitado\": 2000.00,\r\n  \"TipoTarjeta\": \"025\",\r\n  \"Ciclo\": 1,\r\n  \"Empresa\": \"VERSATEC\",\r\n  \"TelefonoEmpresa\": \"50522558888\",\r\n  \"Cuenta\": \"\",\r\n  \"UserName\": \"HAROLD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcPreRegistroTH",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcPreRegistroTH"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VtcObtenerPlasticosNuevos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcObtenerPlasticosNuevos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcObtenerPlasticosNuevos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VtcObtenerMovimientosCuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Generate",
+								"value": "true",
+								"description": "Do you want to generate random movements",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "Name",
+								"value": "DIANA MORALES",
+								"description": "Account owner name",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "LastDigitsAccount",
+								"value": "0283",
+								"description": "Last 4 digits of the account",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "LastDigitsCard",
+								"value": "0283",
+								"description": "Last 4 digits of the card",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "InitDate",
+								"value": "10/12/2021",
+								"description": "MM/dd/yyyy",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "FinalDate",
+								"value": "01/01/2022",
+								"description": "MM/dd/yyyy",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "MEMovements",
+								"value": "90",
+								"description": "Number of movements on foreing currency",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "MLMovement",
+								"value": "1",
+								"description": "Number of movements on local currency",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "MCC",
+								"value": "6010",
+								"description": "MCC value",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Anyo\": 0,\r\n  \"Mes\": 0,\r\n  \"Cuenta\": \"ua9t7vDZydf6CKbyBiNYpu0AWzMGFjN0xaIdcCgCEoM=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcObtenerMovimientosCuenta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcObtenerMovimientosCuenta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VtcInfoEstCtaTH",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Name",
+								"value": "DIANA MORALES",
+								"description": "Owner account name",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "LastDigitsAccount",
+								"value": "8870",
+								"description": "Last 4 digits of the account",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "LastDigitsCard",
+								"value": "9089",
+								"description": "Last 4 digits of the card",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "AccountCutDate",
+								"value": "10/02/2021",
+								"description": "Cut date",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "SdoUltCorteMN",
+								"value": "25.00",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "SdoUltCorteME",
+								"value": "-6.00",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "SaldoFinalML",
+								"value": "-5460.00",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "SaldoFinalME",
+								"value": "-120.00",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "City",
+								"value": "Alajuela",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "ClientEmail",
+								"value": "jmatamoros@versatecenlinea.net",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Anyo\": 0,\r\n  \"Mes\": 0,\r\n  \"Cuenta\": \"yyyy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcInfoEstCtaTH",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcInfoEstCtaTH"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Entrega #2",
+			"item": [
+				{
+					"name": "VtcObtenerCuentasCliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"NumIdentif\": \"01-1888-8888\",\r\n  \"TipIdentif\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcObtenerCuentasCliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcObtenerCuentasCliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VtcAddGestionesBloDesb",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Gestion\": 56,\r\n  \"Cuenta\": \"OddQK0vCT9t/tONt8nWrXXj/RICZcyUHik7Lx7O5aCI=\",\r\n  \"Tarjeta\": \"OddQK0vCT9t/tONt8nWrXXj/RICZcyUHik7Lx7O5aCI=\",\r\n  \"Descripcion\": \"Prueba Bloqueo TT\",\r\n  \"Comentario\": \"Test JM\",\r\n  \"UserName\": \"JMATAMOROS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcAddGestionesBloDesb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcAddGestionesBloDesb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VtcInfoSdoCta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "EncryptedCard",
+								"value": "23EOdac0NbjI0Nv9NryKAv+KzHZpyK3r07UtUbct/2c=",
+								"description": "Encrytep card",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "EncryptedAccount",
+								"value": "jHjRmn+CQHuOyHtv6s7z3848oEpiJeCg4At2OwxlOhg=",
+								"description": "Encrytep account",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "LastDigitsCard",
+								"value": "9089",
+								"description": "Last 4 digits of the card",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "Name",
+								"value": "MARIELA MATAMOROS",
+								"description": "Account owner name",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "AccountStatus",
+								"value": "ACTIVA",
+								"description": "Account status",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "SdoUltCorteMN",
+								"value": "25.00",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "SdoUltCorteME",
+								"value": "-6.00",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "SaldoFinalML",
+								"value": "-5460.00",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "SaldoFinalME",
+								"value": "-120.00",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Anyo\": 0,\r\n  \"Mes\": 0,\r\n  \"Cuenta\": \"yyyy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcInfoSdoCta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcInfoSdoCta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VtcInfoEstCtaTHBytePdf",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Anyo\": 0,\r\n  \"Mes\": 0,\r\n  \"Cuenta\": \"+6GGyJSS8MVOtFgXJIGdPEMSMnElLZgfdELG34hMbmo=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcInfoEstCtaTHBytePdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcInfoEstCtaTHBytePdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VtcAddTrxPago",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TarjetaEncriptada\": \"ua9t7vDZydf6CKbyBiNYpu0AWzMGFjN0xaIdcCgCEoM=\",\r\n  \"TipoOperacion\": 20,\r\n  \"Moneda\": 2,\r\n  \"Descripcion\": \"Pago 370\",\r\n  \"MontoTrx\": 50,\r\n  \"NoRecibo\": \"\",\r\n  \"UserName\": \"Jmatamoros\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcAddTrxPago",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcAddTrxPago"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VtcAddTrasladoDisponible",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CuentaOrigen\": \"jHjRmn+CQHuOyHtv6s7z33yc753NCqp3rA9ZB/SbTd0=\",\r\n  \"CuentaDestino\": \"+6GGyJSS8MVOtFgXJIGdPEMSMnElLZgfdELG34hMbmo=\",\r\n  \"Monto\": 15,\r\n  \"Moneda\": 2,\r\n  \"Descripcion\": \"Traslado Disponible\",\r\n  \"UserName\": \"JMTAMOROS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcAddTrasladoDisponible",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcAddTrasladoDisponible"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Entrega #3",
+			"item": [
+				{
+					"name": "VtcDelTranFlotante",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n  \"MtoTra\": 1.00,\r\n  \"Moneda\": 2,\r\n  \"CodAut\": 137059,\r\n  \"Descripcion\": \"eliminacion de flotante\", \r\n  \"UserName\": \"earceda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcDelTranFlotante",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcDelTranFlotante"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - cuenta inválida (bad request)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \r\n  \"MtoTra\": 1.00,\r\n  \"Moneda\": 2,\r\n  \"CodAut\": 137059,\r\n  \"Descripcion\": \"eliminacion de flotante\", \r\n  \"UserName\": \"earceda\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://versatecdesarrollo.com:8061/api/EmisorCta/VtcDelTranFlotante",
+									"protocol": "https",
+									"host": [
+										"versatecdesarrollo",
+										"com"
+									],
+									"port": "8061",
+									"path": [
+										"api",
+										"EmisorCta",
+										"VtcDelTranFlotante"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/7.5"
+								},
+								{
+									"key": "X-AspNet-Version",
+									"value": "4.0.30319"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "unsafe-inline"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "allowfullscreen"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Oct 2021 14:13:27 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "413"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"InfoTran\": {\n        \"IsError\": true,\n        \"ReturnMessage\": \"Codigo de Error: 3\\r\\nMensaje: Cuenta inválida100033\",\n        \"ErrorCode\": \"3\",\n        \"IsAuthenicated\": true,\n        \"TipoError\": 1,\n        \"ValidationErrors\": {},\n        \"ErrorLog\": \"Tipo de Error: \\r\\n                           Codigo: 3\\r\\n                           número: 1001002\\r\\n                           Mensaje: Cuenta inválida100033\"\n    }\n}"
+						},
+						{
+							"name": "200 - no se encontro flotante (bad request)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \r\n  \"MtoTra\": 1.00,\r\n  \"Moneda\": 2,\r\n  \"CodAut\": 137063,\r\n  \"Descripcion\": \"eliminacion de flotante\", \r\n  \"UserName\": \"HAROLD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://versatecdesarrollo.com:8061/api/EmisorCta/VtcDelTranFlotante",
+									"protocol": "https",
+									"host": [
+										"versatecdesarrollo",
+										"com"
+									],
+									"port": "8061",
+									"path": [
+										"api",
+										"EmisorCta",
+										"VtcDelTranFlotante"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/7.5"
+								},
+								{
+									"key": "X-AspNet-Version",
+									"value": "4.0.30319"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "unsafe-inline"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "allowfullscreen"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Oct 2021 14:16:06 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "455"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"InfoTran\": {\n        \"IsError\": true,\n        \"ReturnMessage\": \"Codigo de Error: 163\\r\\nMensaje: No se ha encontrado flotante relacionado\",\n        \"ErrorCode\": \"163\",\n        \"IsAuthenicated\": true,\n        \"TipoError\": 1,\n        \"ValidationErrors\": {},\n        \"ErrorLog\": \"Tipo de Error: \\r\\n                           Codigo: 163\\r\\n                           número: 1001074\\r\\n                           Mensaje: No se ha encontrado flotante relacionado\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "VtcGetTransDenegadas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Tarjeta\": \"jHjRmn+CQHuOyHtv6s7z33yc753NCqp3rA9ZB/SbTd0=\",\r\n  \"FechaIni\": \"20211001\",\r\n  \"FechaFin\": \"20211020\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcGetTransDenegadas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcGetTransDenegadas"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Tarjeta\": \"jHjRmn+CQHuOyHtv6s7z3+329skT09wYS/5fU67RHqI=\",\r\n  \"FechaIni\": \"20211001\",\r\n  \"FechaFin\": \"20211020\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://versatecdesarrollo.com:8061/api/EmisorCta/VtcGetTransDenegadas",
+									"protocol": "https",
+									"host": [
+										"versatecdesarrollo",
+										"com"
+									],
+									"port": "8061",
+									"path": [
+										"api",
+										"EmisorCta",
+										"VtcGetTransDenegadas"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/7.5"
+								},
+								{
+									"key": "X-AspNet-Version",
+									"value": "4.0.30319"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "unsafe-inline"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "allowfullscreen"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Oct 2021 14:18:59 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3650"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"InfoTran\": {\n        \"IsError\": false,\n        \"ReturnMessage\": \"\",\n        \"ErrorCode\": \"00\",\n        \"IsAuthenicated\": true,\n        \"TipoError\": 5,\n        \"ValidationErrors\": {},\n        \"ErrorLog\": \"\"\n    },\n    \"Model\": [\n        {\n            \"Rspcode\": \"96  \",\n            \"Categoria\": \"5541\",\n            \"Comercio\": \"POSTEST                  USA          US\",\n            \"Pais\": \"\",\n            \"Mtotraorigen\": \"0.01\",\n            \"Mnorigen\": \"840 - U.S. DOLLARS \",\n            \"Mtotradestino\": \"0.01\",\n            \"Mndestino\": \"840 - DOLARES                       \",\n            \"Processing_Code\": \"00\",\n            \"Message_Type\": \"0110\"\n        },\n        {\n            \"Rspcode\": \"13  \",\n            \"Categoria\": \"8011\",\n            \"Comercio\": \"FARMACIA CUBERO          CRI          CR\",\n            \"Pais\": \"\",\n            \"Mtotraorigen\": \"50.00\",\n            \"Mnorigen\": \"188 - COSTA RICAN COLON \",\n            \"Mtotradestino\": \"50.00\",\n            \"Mndestino\": \"188 - COLONES                       \",\n            \"Processing_Code\": \"00\",\n            \"Message_Type\": \"0110\"\n        },\n        {\n            \"Rspcode\": \"96  \",\n            \"Categoria\": \"5541\",\n            \"Comercio\": \"POSTEST                  USA          US\",\n            \"Pais\": \"\",\n            \"Mtotraorigen\": \"0.01\",\n            \"Mnorigen\": \"840 - U.S. DOLLARS \",\n            \"Mtotradestino\": \"0.01\",\n            \"Mndestino\": \"840 - DOLARES                       \",\n            \"Processing_Code\": \"00\",\n            \"Message_Type\": \"0110\"\n        },\n        {\n            \"Rspcode\": \"13  \",\n            \"Categoria\": \"5814\",\n            \"Comercio\": \"FARMACIA CUBERO          CRI          CR\",\n            \"Pais\": \"\",\n            \"Mtotraorigen\": \"100.00\",\n            \"Mnorigen\": \"188 - COSTA RICAN COLON \",\n            \"Mtotradestino\": \"100.00\",\n            \"Mndestino\": \"188 - COLONES                       \",\n            \"Processing_Code\": \"00\",\n            \"Message_Type\": \"0110\"\n        },\n        {\n            \"Rspcode\": \"96  \",\n            \"Categoria\": \"5541\",\n            \"Comercio\": \"POSTEST                  USA          US\",\n            \"Pais\": \"\",\n            \"Mtotraorigen\": \"0.01\",\n            \"Mnorigen\": \"840 - U.S. DOLLARS \",\n            \"Mtotradestino\": \"0.01\",\n            \"Mndestino\": \"840 - DOLARES                       \",\n            \"Processing_Code\": \"00\",\n            \"Message_Type\": \"0110\"\n        },\n        {\n            \"Rspcode\": \"96  \",\n            \"Categoria\": \"5541\",\n            \"Comercio\": \"POSTEST                  USA          US\",\n            \"Pais\": \"\",\n            \"Mtotraorigen\": \"0.01\",\n            \"Mnorigen\": \"840 - U.S. DOLLARS \",\n            \"Mtotradestino\": \"0.01\",\n            \"Mndestino\": \"840 - DOLARES                       \",\n            \"Processing_Code\": \"00\",\n            \"Message_Type\": \"0110\"\n        },\n        {\n            \"Rspcode\": \"13  \",\n            \"Categoria\": \"5541\",\n            \"Comercio\": \"POSTEST                  USA          US\",\n            \"Pais\": \"\",\n            \"Mtotraorigen\": \"0.01\",\n            \"Mnorigen\": \"188 - COSTA RICAN COLON \",\n            \"Mtotradestino\": \"0.01\",\n            \"Mndestino\": \"188 - COLONES                       \",\n            \"Processing_Code\": \"00\",\n            \"Message_Type\": \"0110\"\n        },\n        {\n            \"Rspcode\": \"13  \",\n            \"Categoria\": \"5541\",\n            \"Comercio\": \"POSTEST                  USA          US\",\n            \"Pais\": \"\",\n            \"Mtotraorigen\": \"0.01\",\n            \"Mnorigen\": \"188 - COSTA RICAN COLON \",\n            \"Mtotradestino\": \"0.01\",\n            \"Mndestino\": \"188 - COLONES                       \",\n            \"Processing_Code\": \"00\",\n            \"Message_Type\": \"0110\"\n        },\n        {\n            \"Rspcode\": \"13  \",\n            \"Categoria\": \"5541\",\n            \"Comercio\": \"POSTEST                  USA          US\",\n            \"Pais\": \"\",\n            \"Mtotraorigen\": \"0.01\",\n            \"Mnorigen\": \"188 - COSTA RICAN COLON \",\n            \"Mtotradestino\": \"0.01\",\n            \"Mndestino\": \"188 - COLONES                       \",\n            \"Processing_Code\": \"00\",\n            \"Message_Type\": \"0110\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "vtcPlasticosActivados",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/vtcPlasticosActivados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"vtcPlasticosActivados"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://versatecdesarrollo.com:8061/api/EmisorCta/vtcPlasticosActivados",
+									"protocol": "https",
+									"host": [
+										"versatecdesarrollo",
+										"com"
+									],
+									"port": "8061",
+									"path": [
+										"api",
+										"EmisorCta",
+										"vtcPlasticosActivados"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/7.5"
+								},
+								{
+									"key": "X-AspNet-Version",
+									"value": "4.0.30319"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "unsafe-inline"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "allowfullscreen"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Oct 2021 14:23:35 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1985"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"InfoTran\": {\n        \"IsError\": false,\n        \"ReturnMessage\": \"\",\n        \"ErrorCode\": \"00\",\n        \"IsAuthenicated\": true,\n        \"TipoError\": 5,\n        \"ValidationErrors\": {},\n        \"ErrorLog\": \"\"\n    },\n    \"Model\": [\n        {\n            \"Nombre\": \"DIANA MORALES                 \",\n            \"Plastico\": \"41478******0283\",\n            \"Cuenta\": \"414787******0283\",\n            \"Usuario\": \"JMATAMOROS\",\n            \"Fecha\": 20211011,\n            \"Estado\": \"AC\"\n        },\n        {\n            \"Nombre\": \"DIANA MORALES                 \",\n            \"Plastico\": \"41478******0283\",\n            \"Cuenta\": \"414787******0283\",\n            \"Usuario\": \"usrhomolog\",\n            \"Fecha\": 20211019,\n            \"Estado\": \"AC\"\n        },\n        {\n            \"Nombre\": \"DIANA MORALES                 \",\n            \"Plastico\": \"41478******0408\",\n            \"Cuenta\": \"414787******0408\",\n            \"Usuario\": \"JMATAMOROS\",\n            \"Fecha\": 20211012,\n            \"Estado\": \"AC\"\n        },\n        {\n            \"Nombre\": \"DIANA MORALES                 \",\n            \"Plastico\": \"41478******0408\",\n            \"Cuenta\": \"414787******0408\",\n            \"Usuario\": \"sistema   \",\n            \"Fecha\": 20210113,\n            \"Estado\": \"AC\"\n        },\n        {\n            \"Nombre\": \"LUIS MIGUEL                   \",\n            \"Plastico\": \"41478******0226\",\n            \"Cuenta\": \"414787******0226\",\n            \"Usuario\": \"JMATAMOROS\",\n            \"Fecha\": 20211009,\n            \"Estado\": \"AC\"\n        },\n        {\n            \"Nombre\": \"MARIELA MATAMOROS             \",\n            \"Plastico\": \"41478******0036\",\n            \"Cuenta\": \"414787******0036\",\n            \"Usuario\": \"usrhomolog\",\n            \"Fecha\": 20211007,\n            \"Estado\": \"AC\"\n        },\n        {\n            \"Nombre\": \"MAYRON ARCEDA                 \",\n            \"Plastico\": \"41478******0077\",\n            \"Cuenta\": \"414787******0036\",\n            \"Usuario\": \"haltamiran\",\n            \"Fecha\": 20200811,\n            \"Estado\": \"AC\"\n        },\n        {\n            \"Nombre\": \"MAYRON ARCEDA                 \",\n            \"Plastico\": \"41478******0077\",\n            \"Cuenta\": \"414787******0036\",\n            \"Usuario\": \"JMATAMOROS\",\n            \"Fecha\": 20211008,\n            \"Estado\": \"AC\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "VtcInfoTarjeta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Tarjeta\": \"jHjRmn+CQHuOyHtv6s7z33shzRB8L58TmpFaXO+4oRE=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcInfoTarjeta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcInfoTarjeta"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Tarjeta\": \"jHjRmn+CQHuOyHtv6s7z33shzRB8L58TmpFaXO+4oRE=\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://versatecdesarrollo.com:8061/api/EmisorCta/VtcInfoTarjeta",
+									"protocol": "https",
+									"host": [
+										"versatecdesarrollo",
+										"com"
+									],
+									"port": "8061",
+									"path": [
+										"api",
+										"EmisorCta",
+										"VtcInfoTarjeta"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/7.5"
+								},
+								{
+									"key": "X-AspNet-Version",
+									"value": "4.0.30319"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "unsafe-inline"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "allowfullscreen"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Oct 2021 14:26:07 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "390"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"InfoTran\": {\n        \"IsError\": false,\n        \"ReturnMessage\": \"\",\n        \"ErrorCode\": \"00\",\n        \"IsAuthenicated\": true,\n        \"TipoError\": 5,\n        \"ValidationErrors\": {},\n        \"ErrorLog\": \"\"\n    },\n    \"Model\": {\n        \"Cuenta\": \"414787******0036\",\n        \"Tarjeta\": \"414787******0036\",\n        \"NombreTh\": \"MARIELA MATAMOROS\",\n        \"Estado\": \"PLASTICO OK\",\n        \"Vencimiento\": \"07/10/2024\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "VtcAddUpdRestriccionPlastico",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Tarjeta\": \"ekGDHgWRCcL1lhj30wuYI6hbxnRqmLJWbTwUtrcnzuY=\",\r\n  \"Restingir\": true,\r\n  \"UserName\": \"HAROLD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcAddUpdRestriccionPlastico",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcAddUpdRestriccionPlastico"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Tarjeta\": \"ekGDHgWRCcL1lhj30wuYI6hbxnRqmLJWbTwUtrcnzuY=\",\r\n  \"Restingir\": true,\r\n  \"UserName\": \"HAROLD\"\r\n}\r\n\r\n// VER QUE, AUNQUE BLOQUEE LA TARJETA SIGUE \r\n// APARECIENDO ES ESTADO OK EN EL OTRO ENDPOINT",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://versatecdesarrollo.com:8061/api/EmisorCta/VtcAddUpdRestriccionPlastico",
+									"protocol": "https",
+									"host": [
+										"versatecdesarrollo",
+										"com"
+									],
+									"port": "8061",
+									"path": [
+										"api",
+										"EmisorCta",
+										"VtcAddUpdRestriccionPlastico"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/7.5"
+								},
+								{
+									"key": "X-AspNet-Version",
+									"value": "4.0.30319"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "unsafe-inline"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "allowfullscreen"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Oct 2021 14:30:26 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "199"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"InfoTran\": {\n        \"IsError\": false,\n        \"ReturnMessage\": \"OK\",\n        \"ErrorCode\": \"0\",\n        \"IsAuthenicated\": true,\n        \"TipoError\": 5,\n        \"ValidationErrors\": {},\n        \"ErrorLog\": \"\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "VtcAddUpdRestriccionPais",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \r\n  \"Tarjeta\": \"zUCgdOJeMxSJ5vdTEHSqWNdStmUEVjadM4QRjwjWvG0=\",  \r\n  \"Paises\": [\r\n    {\r\n      \"CodigoPais\": \"188\",\r\n      \"Activo\": false\r\n    },\r\n    {\r\n      \"CodigoPais\": \"004\",\r\n      \"Activo\": true\r\n    }\r\n  ],\r\n  \"UserName\": \"earceda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcAddUpdRestriccionPais",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcAddUpdRestriccionPais"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{  \r\n  \"Tarjeta\": \"zUCgdOJeMxSJ5vdTEHSqWNdStmUEVjadM4QRjwjWvG0=\",  \r\n  \"Paises\": [\r\n    {\r\n      \"CodigoPais\": \"188\",\r\n      \"Activo\": false\r\n    },\r\n    {\r\n      \"CodigoPais\": \"004\",\r\n      \"Activo\": true\r\n    }\r\n  ],\r\n  \"UserName\": \"earceda\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://versatecdesarrollo.com:8061/api/EmisorCta/VtcAddUpdRestriccionPais",
+									"protocol": "https",
+									"host": [
+										"versatecdesarrollo",
+										"com"
+									],
+									"port": "8061",
+									"path": [
+										"api",
+										"EmisorCta",
+										"VtcAddUpdRestriccionPais"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/7.5"
+								},
+								{
+									"key": "X-AspNet-Version",
+									"value": "4.0.30319"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "unsafe-inline"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "allowfullscreen"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Oct 2021 14:37:25 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "199"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"InfoTran\": {\n        \"IsError\": false,\n        \"ReturnMessage\": \"OK\",\n        \"ErrorCode\": \"0\",\n        \"IsAuthenicated\": true,\n        \"TipoError\": 5,\n        \"ValidationErrors\": {},\n        \"ErrorLog\": \"\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "VtcUpdPinTh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Tarjeta\": \"FjWIVdJ3l3EXE6srJQZaSqZkFdcdjwg+Urr5MoNK9x0=\",\r\n  \"NuevoPin\": \"1234\",\r\n  \"Descripcion\": \"cambio de pin\",\r\n  \"UserName\": \"earceda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcUpdPinTh",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcUpdPinTh"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error - estado invalido",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Tarjeta\": \"+n6tbY8Cnlr17NTxlTuAokFMSrDu4QPoEBH1N/8C5fQ=\",\r\n  \"NuevoPin\": \"1234\",\r\n  \"Descripcion\": \"cambio de pin\",\r\n  \"UserName\": \"HAROLD\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://versatecdesarrollo.com:8061/api/EmisorCta/VtcUpdPinTh",
+									"protocol": "https",
+									"host": [
+										"versatecdesarrollo",
+										"com"
+									],
+									"port": "8061",
+									"path": [
+										"api",
+										"EmisorCta",
+										"VtcUpdPinTh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/7.5"
+								},
+								{
+									"key": "X-AspNet-Version",
+									"value": "4.0.30319"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "unsafe-inline"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "allowfullscreen"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Oct 2021 14:40:45 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "402"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"InfoTran\": {\n        \"IsError\": true,\n        \"ReturnMessage\": \"Codigo de Error: 13\\r\\nMensaje: Estado invalido\",\n        \"ErrorCode\": \"13\",\n        \"IsAuthenicated\": true,\n        \"TipoError\": 1,\n        \"ValidationErrors\": {},\n        \"ErrorLog\": \"Tipo de Error: \\r\\n                           Codigo: 13\\r\\n                           número: 1001012\\r\\n                           Mensaje: Estado invalido\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "VtcObtenerCVV2Plastico",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Tarjeta\": \"jHjRmn+CQHuOyHtv6s7z38btyC4jJFQItBhlqYTkavU=\",\r\n  \"UserName\": \"earceda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/VtcObtenerCVV2Plastico",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"VtcObtenerCVV2Plastico"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Tarjeta\": \"jHjRmn+CQHuOyHtv6s7z38btyC4jJFQItBhlqYTkavU=\",\r\n  \"UserName\": \"earceda\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://versatecdesarrollo.com:8061/api/EmisorCta/VtcObtenerCVV2Plastico",
+									"protocol": "https",
+									"host": [
+										"versatecdesarrollo",
+										"com"
+									],
+									"port": "8061",
+									"path": [
+										"api",
+										"EmisorCta",
+										"VtcObtenerCVV2Plastico"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/7.5"
+								},
+								{
+									"key": "X-AspNet-Version",
+									"value": "4.0.30319"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "unsafe-inline"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "allowfullscreen"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Oct 2021 14:41:17 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "273"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"InfoTran\": {\n        \"IsError\": false,\n        \"ReturnMessage\": \"Ha ocurrido un error al obtener el CVV2\",\n        \"ErrorCode\": \"00\",\n        \"IsAuthenicated\": true,\n        \"TipoError\": 5,\n        \"ValidationErrors\": {},\n        \"ErrorLog\": \"\"\n    },\n    \"Model\": {\n        \"CVV2\": \"\"\n    }\n}"
+						},
+						{
+							"name": "Error(2)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Tarjeta\": \"+n6tbY8Cnlr17NTxlTuAokFMSrDu4QPoEBH1N/8C5fQ=\",\r\n  \"UserName\": \"earceda\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://versatecdesarrollo.com:8061/api/EmisorCta/VtcObtenerCVV2Plastico",
+									"protocol": "https",
+									"host": [
+										"versatecdesarrollo",
+										"com"
+									],
+									"port": "8061",
+									"path": [
+										"api",
+										"EmisorCta",
+										"VtcObtenerCVV2Plastico"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/7.5"
+								},
+								{
+									"key": "X-AspNet-Version",
+									"value": "4.0.30319"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "unsafe-inline"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "allowfullscreen"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Oct 2021 14:41:54 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "232"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"InfoTran\": {\n        \"IsError\": false,\n        \"ReturnMessage\": \"CVV2 no encontrado\",\n        \"ErrorCode\": \"00\",\n        \"IsAuthenicated\": true,\n        \"TipoError\": 5,\n        \"ValidationErrors\": {},\n        \"ErrorLog\": \"\"\n    },\n    \"Model\": {}\n}"
+						},
+						{
+							"name": "Error(3)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Tarjeta\": \"HjRmn+CQHuOyHtv6s7z33yc753NCqp3rA9ZB/SbTd0=\",\r\n  \"UserName\": \"HAROLD\"\r\n}\r\n// supuestamente esta tarjeta es la que anda \r\n// en el endpoint ObtenerFlotanteRelacionadas",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://versatecdesarrollo.com:8061/api/EmisorCta/VtcObtenerCVV2Plastico",
+									"protocol": "https",
+									"host": [
+										"versatecdesarrollo",
+										"com"
+									],
+									"port": "8061",
+									"path": [
+										"api",
+										"EmisorCta",
+										"VtcObtenerCVV2Plastico"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Server",
+									"value": "Microsoft-IIS/7.5"
+								},
+								{
+									"key": "X-AspNet-Version",
+									"value": "4.0.30319"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "unsafe-inline"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "allowfullscreen"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 25 Oct 2021 14:43:31 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "532"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"InfoTran\": {\n        \"IsError\": true,\n        \"ReturnMessage\": \"Hubo un error interno, póngase en contacto con soporte técnico.\",\n        \"ErrorCode\": \"01\",\n        \"IsAuthenicated\": true,\n        \"TipoError\": 3,\n        \"ValidationErrors\": {},\n        \"ErrorLog\": \"Usuario: usr_OMNI, Tipo de Error: Servicio\\r\\n                           Codigo: -2146233033\\r\\n                           Aplicación: mscorlib\\r\\n                           Mensaje: Invalid length for a Base-64 char array or string.\"\n    },\n    \"Model\": {\n        \"CVV2\": \"\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Entrega SINPE",
+			"item": [
+				{
+					"name": "ObtenerCuentaIBAN",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.sendRequest({",
+									"    method: 'POST',",
+									"    url: 'http://localhost:8061/api/token',",
+									"    headers: {",
+									"        'Accept': 'application/json',",
+									"        'Content-Type': 'application/x-www-form-urlencoded',",
+									"  },",
+									"    body: {",
+									"        mode: 'urlencoded',",
+									"        urlencoded: [",
+									"            {key: \"grant_type\", value: \"password\"},",
+									"            {key: \"username\", value: \"usr_OMNI\"},",
+									"            {key: \"password\", value: \"Ojo123*\"},",
+									"            {key: \"scope\", value: \"100033\"},",
+									"        ]",
+									"    }",
+									"}, function (err, response) {",
+									"  const jsonData = response.json();",
+									"  pm.environment.set('versatecToken', jsonData.access_token)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "DesProducto",
+								"value": "TARJETA DE CREDITOps",
+								"description": "Description of the product",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Estado",
+								"value": "1",
+								"description": "Status",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "IdTitular",
+								"value": "01-1888-8888",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Moneda",
+								"value": "1",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "NombreTitular",
+								"value": "PATO LUCAS AAA",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "TipoId",
+								"value": "0",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CuentaIBAN\": \"CR22042300110000000228\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/ObtenerCuentaIBAN",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"ObtenerCuentaIBAN"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AplicaCreditosCongelados",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.sendRequest({",
+									"    method: 'POST',",
+									"    url: 'http://localhost:8061/api/token',",
+									"    headers: {",
+									"        'Accept': 'application/json',",
+									"        'Content-Type': 'application/x-www-form-urlencoded',",
+									"  },",
+									"    body: {",
+									"        mode: 'urlencoded',",
+									"        urlencoded: [",
+									"            {key: \"grant_type\", value: \"password\"},",
+									"            {key: \"username\", value: \"usr_OMNI\"},",
+									"            {key: \"password\", value: \"Ojo123*\"},",
+									"            {key: \"scope\", value: \"100033\"},",
+									"        ]",
+									"    }",
+									"}, function (err, response) {",
+									"  const jsonData = response.json();",
+									"  pm.environment.set('versatecToken', jsonData.access_token)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Valid",
+								"value": "true",
+								"description": "Is the request valid",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rastro\": {\r\n    \"Canal\": 1,\r\n    \"IP\": \"1.1.1.1\",\r\n    \"Usuario\": \"lquintero\"\r\n  },\r\n  \"transacciones\": [\r\n    {\r\n      \"CentroCosto\": 1,\r\n      \"CodEntidad\": 423,\r\n      \"CodigoReferencia\": \"2021020142321009009314377\",\r\n      \"ComprobanteCGP\": 1,\r\n      \"CuentaIBANContraparte\": \"CR54042300110000000040\",\r\n      \"Descripcion\": \"PRUEBA CREDITO\",\r\n      \"FechaCiclo\": \"2021-02-01\",\r\n      \"IdOrigen\": \"25-896-23\",\r\n      \"IdentificacionContraparte\": \"25-896-23\",\r\n      \"MonedaComision\": 1,\r\n      \"MontoComision\": 1.0,\r\n      \"NombreOrigen\": \"Diana Morales\",\r\n      \"Servicio\": \"prueba crédito\",\r\n      \"CodigoMoneda\": 1,\r\n      \"CodigoServicio\": 21,\r\n      \"CuentaIBAN\": \"CR54042300110000000040\",\r\n      \"IdRelacionCliente\": \"1234\",\r\n      \"Identificacion\": \"25-896-23\",\r\n      \"Monto\": 3.50\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/AplicaCreditosCongelados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"AplicaCreditosCongelados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SolicitarMonedero",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.sendRequest({",
+									"    method: 'POST',",
+									"    url: 'http://localhost:8061/api/token',",
+									"    headers: {",
+									"        'Accept': 'application/json',",
+									"        'Content-Type': 'application/x-www-form-urlencoded',",
+									"  },",
+									"    body: {",
+									"        mode: 'urlencoded',",
+									"        urlencoded: [",
+									"            {key: \"grant_type\", value: \"password\"},",
+									"            {key: \"username\", value: \"usr_OMNI\"},",
+									"            {key: \"password\", value: \"Ojo123*\"},",
+									"            {key: \"scope\", value: \"100033\"},",
+									"        ]",
+									"    }",
+									"}, function (err, response) {",
+									"  const jsonData = response.json();",
+									"  pm.environment.set('versatecToken', jsonData.access_token)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Valid",
+								"value": "true",
+								"description": "is the request valid?",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Repeated",
+								"value": "true",
+								"description": "is the request repeated?",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"SolicitarMonedero\": {\r\n    \"Rastro\": {\r\n      \"IP\": \"1.1.1.1\",\r\n      \"Usuario\": \"lquintero\",\r\n      \"Canal\": 1\r\n    },\r\n    \"Solicitudes\": [\r\n      {\r\n        \"NumeroTelefono\": \"77770015\",\r\n        \"Identificacion\": \"01-1610-9112\",\r\n        \"NombreCliente\": \"ALEJANDRO D CASTRO\",\r\n        \"CorreoElectronico\": \"lquintero@versatecenlinea.net\",\r\n        \"TipoNotificacion\": 2,\r\n        \"EntidadPropietaria\": 423,\r\n        \"ModeloRepresentacion\": 0,\r\n        \"CuentaIban\": \"CR09042300110000000171\",\r\n        \"Moneda\": 0,\r\n        \"MontoMaxDiarioSeguroSaliente\": 0,\r\n        \"MontoMaxMensualSeguroSaliente\": 0,\r\n        \"MontoMaxDiarioNoSeguroSaliente\": 0,\r\n        \"MontoMaxMensualNoSeguroSaliente\": 0,\r\n        \"MontoMaxDiarioNoSeguroRechazoSaliente\": 0,\r\n        \"MontoMaxMensualNoSeguroRechazoSaliente\": 0,\r\n        \"MontoMaxDiarioEntrante\": 0,\r\n        \"MontoMaxMensualEntrante\": 0,\r\n        \"Operador\": \"1\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/SolicitarMonedero",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"SolicitarMonedero"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InactivarMonedero",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.sendRequest({",
+									"    method: 'POST',",
+									"    url: 'http://localhost:8061/api/token',",
+									"    headers: {",
+									"        'Accept': 'application/json',",
+									"        'Content-Type': 'application/x-www-form-urlencoded',",
+									"  },",
+									"    body: {",
+									"        mode: 'urlencoded',",
+									"        urlencoded: [",
+									"            {key: \"grant_type\", value: \"password\"},",
+									"            {key: \"username\", value: \"usr_OMNI\"},",
+									"            {key: \"password\", value: \"Ojo123*\"},",
+									"            {key: \"scope\", value: \"100033\"},",
+									"        ]",
+									"    }",
+									"}, function (err, response) {",
+									"  const jsonData = response.json();",
+									"  pm.environment.set('versatecToken', jsonData.access_token)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{versatecToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Valid",
+								"value": "true",
+								"description": "is the request valid?",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Repeated",
+								"value": "true",
+								"description": "is the request repeated?",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"InactivarMonedero\": {\r\n    \"Rastro\": {\r\n      \"IP\": \"1.1.1.1\",\r\n      \"Usuario\": \"jmatamoros\",\r\n      \"Canal\": 1\r\n    },\r\n    \"NumeroTelefono\": \"77770015\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8061/api/EmisorCta/InactivarMonedero",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8061",
+							"path": [
+								"api",
+								"EmisorCta",
+								"InactivarMonedero"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

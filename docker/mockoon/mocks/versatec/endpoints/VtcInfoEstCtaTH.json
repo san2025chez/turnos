@@ -1,0 +1,47 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "4b346b16-bfd9-4a5b-8d88-5ff1e1c1ceff",
+                "documentation": "VtcInfoEstCtaTH",
+                "method": "post",
+                "endpoint": "api/EmisorCta/VtcInfoEstCtaTH",
+                "responses": [
+                    {
+                        "uuid": "ebafec75-3acb-46ec-88fe-4d81dd5cf7a7",
+                        "body": "{\n\t\"InfoTran\":{\n\t\t\"IsError\":false,\n\t\t\"ReturnMessage\":\"\",\n\t\t\"ErrorCode\":\"00\",\n\t\t\"IsAuthenicated\":true,\n\t\t\"TipoError\":5,\n\t\t\"ValidationErrors\":{\n\t\t\t\n\t\t},\n\t\t\"ErrorLog\":\"\"\n\t},\n\t\"Model\":{\n\t\t\"Procesador\":\"Versatec\",\n\t\t\"Bin_Tarjeta\":\"414787\",\n\t\t\"Cuenta\":\"414787******{{header 'LastDigitsAccount' '2420'}}\",\n\t\t\"Nombre\":\"{{header 'Name' 'PATO LUCAS AAA'}}\",\n\t\t\"NombreEmpresa\":\"\",\n\t\t\"Tipo_Tarjeta\":\"025-EMP PROFIT CR 12M 32% PY                          \",\n\t\t\"Tarjeta\":\"414787******{{header 'LastDigitsCard' '2420'}}\",\n\t\t\"FecMaxPago\":\"Ciclo actual no cerrado\",\n\t\t\"FechaCorte\":\"{{header 'AccountCutDate' '01/05/2021'}}\",\n\t\t\"SdoUltCorteMN\": {{header 'SdoUltCorteMN' -9500.00}},\n\t\t\"SdoUltCorteME\": {{header 'SdoUltCorteME' 500.00}},\n\t\t\"SaldoFinalML\":  {{header 'SaldoFinalML' -9500.00}},\n\t\t\"SaldoFinalME\":  {{header 'SaldoFinalME' 500.00}},\n\t  \"ConsumoMesML\": 0.00,\n    \"ConsumoMesME\": 0.00,\n    \"CreditosMesML\": 0.00,\n    \"CreditosMesME\": 0.00,\n    \"SobregiroML\": 0.00,\n    \"SobregiroME\": 0.00,\n    \"CuotaMesML\": 0.00,\n    \"CuotaMesME\": 0.00,\n    \"PagocontadoML\": -9500.00,\n    \"PagocontadoME\": 500.00,\n    \"PagoMinimoML\": 0.00,\n    \"PagoMinimoME\": 500.00,\n    \"SaldoMoraML\": 0.00,\n    \"SaldoMoraME\": 0.00,\n\t\t\"Moneda\":\"$     \",\n\t\t\"LimCreditoML\":1232000.00,\n\t\t\"LimCreditoME\":2000.00,\n\t\t\"DisponibleML\":1192230.84,\n\t\t\"DisponibleME\":1935.44,\n\t\t\"Disponible_RetirosML\":1192230.84,\n\t\t\"Disponible_RetirosME\":1935.44,\n\t\t\"LimiteExtra\":0.00,\n\t\t\"SdoActExML\":0.00,\n\t\t\"DebitosExtraML\":0.00,\n\t\t\"CreditosExtraML\":0.00,\n\t\t\"DebitosExtraME\":0.00,\n\t\t\"CreditosExtraME\":0.00,\n\t\t\"DisponibleExtraML\":0.00,\n\t\t\"IntAnualML\":25.00,\n\t\t\"Direccion\":\"\",\n\t\t\"Direccion2\":\"\",\n\t\t\"Direccion3\":\"\",\n\t\t\"CodigoPostal\":\"0001     \",\n\t\t\"Ciudad\":\"{{header 'City' 'San José'}}\",\n\t\t\"Mensaje1\":\"\",\n\t\t\"Mensaje2\":\"\",\n\t\t\"Mensaje3\":\"\",\n\t\t\"Mensaje4\":\"\",\n\t\t\"Mensaje5\":\"\",\n\t\t\"Tarjeta_Titular\":\"2420\",\n\t\t\"Plazo\":12,\n\t\t\"IntBonific\":0.00,\n\t\t\"Email\":\"{{header 'ClientEmail' 'PLUCAS@VERSATECENLINEA.COM'}}\",\n\t\t\"NvoSdoIntNorML\":0.00,\n\t\t\"NvoSdoIntNorME\":0.00,\n\t\t\"PuntosSaldoAnterior\":0.00,\n\t\t\"PuntosMontoGanado\":0.00,\n\t\t\"PuntosMontoUtilizado\":0.00,\n\t\t\"PuntosSaldoActual\":0.00,\n\t\t\"PlazoCanDeuda\":0,\n\t\t\"OtrosCargosML\":0.00,\n\t\t\"OtrosCargosME\":0.00,\n\t\t\"NumCuotasVencidasML\":0,\n\t\t\"NumCuotasVencidasME\":0,\n\t\t\"TasaAnualEquivalente\":0.00,\n\t\t\"SaldoIntrafinML\":100000.00,\n\t\t\"SaldoIntrafinME\":0.00,\n\t\t\"NumPagosML\":0,\n\t\t\"NumPagosME\":0,\n\t\t\"Comprasencuota\":0.0\n\t}\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path (Generated Data Conditional)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "AND",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "193804d1-3e0b-4380-a104-61932cf42a9d",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

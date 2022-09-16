@@ -1,0 +1,41 @@
+{
+    "uuid": "a1461f51-e073-46b6-acca-bb0c75e09dca",
+    "lastMigration": 19,
+    "name": "Versatech",
+    "endpointPrefix": "",
+    "latency": 0,
+    "port": 8061,
+    "hostname": "0.0.0.0",
+    "routes": [],
+    "proxyMode": true,
+    "proxyHost": "http://0.0.0.0:8060",
+    "proxyRemovePrefix": false,
+    "tlsOptions": {
+        "enabled": false,
+        "type": "CERT",
+        "pfxPath": "",
+        "certPath": "",
+        "keyPath": "",
+        "caPath": "",
+        "passphrase": ""
+    },
+    "cors": true,
+    "headers": [
+        {
+            "key": "Content-Type",
+            "value": "application/json"
+        }
+    ],
+    "proxyReqHeaders": [
+        {
+            "key": "",
+            "value": ""
+        }
+    ],
+    "proxyResHeaders": [
+        {
+            "key": "",
+            "value": ""
+        }
+    ]
+}

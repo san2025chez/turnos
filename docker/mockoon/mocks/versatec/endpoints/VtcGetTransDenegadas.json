@@ -1,0 +1,47 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "3d8302ce-af96-4119-ad87-f61210f9aa0d",
+                "documentation": "VtcGetTransDenegadas",
+                "method": "post",
+                "endpoint": "api/EmisorCta/VtcGetTransDenegadas",
+                "responses": [
+                    {
+                        "uuid": "14407af5-40e1-47d6-9a86-93f6b1cfffe3",
+                        "body": "{\n  \"InfoTran\": {\n    \"IsError\": false,\n    \"ReturnMessage\": \"\",\n    \"ErrorCode\": \"00\",\n    \"IsAuthenicated\": true,\n    \"TipoError\": 5,\n    \"ValidationErrors\": {},\n    \"ErrorLog\": \"\"\n  },\n  \"Model\": [\n    {\n      \"Rspcode\": \"96  \",\n      \"Categoria\": \"5541\",\n      \"Comercio\": \"POSTEST                  USA          US\",\n      \"Pais\": \"\",\n      \"Mtotraorigen\": \"0.01\",\n      \"Mnorigen\": \"840 - U.S. DOLLARS \",\n      \"Mtotradestino\": \"0.01\",\n      \"Mndestino\": \"840 - DOLARES                       \",\n      \"Processing_Code\": \"00\",\n      \"Message_Type\": \"0110\"\n    },\n    {\n      \"Rspcode\": \"13  \",\n      \"Categoria\": \"8011\",\n      \"Comercio\": \"FARMACIA CUBERO          CRI          CR\",\n      \"Pais\": \"\",\n      \"Mtotraorigen\": \"50.00\",\n      \"Mnorigen\": \"188 - COSTA RICAN COLON \",\n      \"Mtotradestino\": \"50.00\",\n      \"Mndestino\": \"188 - COLONES                       \",\n      \"Processing_Code\": \"00\",\n      \"Message_Type\": \"0110\"\n    },\n    {\n      \"Rspcode\": \"96  \",\n      \"Categoria\": \"5541\",\n      \"Comercio\": \"POSTEST                  USA          US\",\n      \"Pais\": \"\",\n      \"Mtotraorigen\": \"0.01\",\n      \"Mnorigen\": \"840 - U.S. DOLLARS \",\n      \"Mtotradestino\": \"0.01\",\n      \"Mndestino\": \"840 - DOLARES                       \",\n      \"Processing_Code\": \"00\",\n      \"Message_Type\": \"0110\"\n    },\n    {\n      \"Rspcode\": \"13  \",\n      \"Categoria\": \"5814\",\n      \"Comercio\": \"FARMACIA CUBERO          CRI          CR\",\n      \"Pais\": \"\",\n      \"Mtotraorigen\": \"100.00\",\n      \"Mnorigen\": \"188 - COSTA RICAN COLON \",\n      \"Mtotradestino\": \"100.00\",\n      \"Mndestino\": \"188 - COLONES                       \",\n      \"Processing_Code\": \"00\",\n      \"Message_Type\": \"0110\"\n    },\n    {\n      \"Rspcode\": \"96  \",\n      \"Categoria\": \"5541\",\n      \"Comercio\": \"POSTEST                  USA          US\",\n      \"Pais\": \"\",\n      \"Mtotraorigen\": \"0.01\",\n      \"Mnorigen\": \"840 - U.S. DOLLARS \",\n      \"Mtotradestino\": \"0.01\",\n      \"Mndestino\": \"840 - DOLARES                       \",\n      \"Processing_Code\": \"00\",\n      \"Message_Type\": \"0110\"\n    },\n    {\n      \"Rspcode\": \"96  \",\n      \"Categoria\": \"5541\",\n      \"Comercio\": \"POSTEST                  USA          US\",\n      \"Pais\": \"\",\n      \"Mtotraorigen\": \"0.01\",\n      \"Mnorigen\": \"840 - U.S. DOLLARS \",\n      \"Mtotradestino\": \"0.01\",\n      \"Mndestino\": \"840 - DOLARES                       \",\n      \"Processing_Code\": \"00\",\n      \"Message_Type\": \"0110\"\n    },\n    {\n      \"Rspcode\": \"13  \",\n      \"Categoria\": \"5541\",\n      \"Comercio\": \"POSTEST                  USA          US\",\n      \"Pais\": \"\",\n      \"Mtotraorigen\": \"0.01\",\n      \"Mnorigen\": \"188 - COSTA RICAN COLON \",\n      \"Mtotradestino\": \"0.01\",\n      \"Mndestino\": \"188 - COLONES                       \",\n      \"Processing_Code\": \"00\",\n      \"Message_Type\": \"0110\"\n    },\n    {\n      \"Rspcode\": \"13  \",\n      \"Categoria\": \"5541\",\n      \"Comercio\": \"POSTEST                  USA          US\",\n      \"Pais\": \"\",\n      \"Mtotraorigen\": \"0.01\",\n      \"Mnorigen\": \"188 - COSTA RICAN COLON \",\n      \"Mtotradestino\": \"0.01\",\n      \"Mndestino\": \"188 - COLONES                       \",\n      \"Processing_Code\": \"00\",\n      \"Message_Type\": \"0110\"\n    },\n    {\n      \"Rspcode\": \"13  \",\n      \"Categoria\": \"5541\",\n      \"Comercio\": \"POSTEST                  USA          US\",\n      \"Pais\": \"\",\n      \"Mtotraorigen\": \"0.01\",\n      \"Mnorigen\": \"188 - COSTA RICAN COLON \",\n      \"Mtotradestino\": \"0.01\",\n      \"Mndestino\": \"188 - COLONES                       \",\n      \"Processing_Code\": \"00\",\n      \"Message_Type\": \"0110\"\n    }\n  ]\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path (Non Generated Data)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "768df9fc-bcaa-463e-8413-f55b5b1b26e7",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

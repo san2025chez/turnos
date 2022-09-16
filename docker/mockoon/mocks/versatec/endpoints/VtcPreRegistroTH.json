@@ -1,0 +1,95 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "c8eefcf4-764f-4126-b09a-7b7ee8e7090a",
+                "documentation": "VtcPreRegistroTH",
+                "method": "post",
+                "endpoint": "api/EmisorCta/VtcPreRegistroTH",
+                "responses": [
+                    {
+                        "uuid": "a251cb39-282f-4042-9d43-854e92207042",
+                        "body": "{\n\t\"InfoTran\":{\n\t\t\"IsError\":false,\n\t\t\"ReturnMessage\":\"Ok\",\n\t\t\"ErrorCode\":\"297\",\n\t\t\"IsAuthenicated\":true,\n\t\t\"TipoError\":5,\n\t\t\"ValidationErrors\":{\n\t\t\t\n\t\t},\n\t\t\"ErrorLog\":\"\"\n\t}\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "0f24dc53-b762-4de0-9bcf-01b6d42e109f",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "fed6f559-a0bb-4965-bc5b-12f158870c5b",
+                        "body": "{\n  \"InfoTran\": {\n    \"IsError\": true,\n    \"ReturnMessage\": \"Codigo de Error: 163\\r\\nMensaje: Identificación no es la relacionada al código de cliente existente\",\n    \"ErrorCode\": \"163\",\n    \"IsAuthenicated\": true,\n    \"TipoError\": 1,\n    \"ValidationErrors\": {},\n    \"ErrorLog\": \"Tipo de Error: \\r\\n                           Codigo: 163\\r\\n                           número: 1001074\\r\\n                           Mensaje: Identificación no es la relacionada al código de cliente existente\"\n  }\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Repeated Request (Invalid)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [
+                            {
+                                "target": "header",
+                                "modifier": "Repeated",
+                                "value": "true",
+                                "operator": "equals"
+                            },
+                            {
+                                "target": "header",
+                                "modifier": "Valid",
+                                "value": "false",
+                                "operator": "equals"
+                            }
+                        ],
+                        "rulesOperator": "AND",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "837506d8-bf25-4099-8798-1b39ab755ef8",
+                        "body": "{\n\t\"InfoTran\":{\n\t\t\"IsError\":false,\n\t\t\"ReturnMessage\":\"Registrado como cliente existente\",\n\t\t\"ErrorCode\":\"298\",\n\t\t\"IsAuthenicated\":true,\n\t\t\"TipoError\":5,\n\t\t\"ValidationErrors\":{\n\t\t\t\n\t\t},\n\t\t\"ErrorLog\":\"\"\n\t}\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Repeated Request (Valid)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [
+                            {
+                                "target": "header",
+                                "modifier": "Repeated",
+                                "value": "true",
+                                "operator": "equals"
+                            }
+                        ],
+                        "rulesOperator": "AND",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

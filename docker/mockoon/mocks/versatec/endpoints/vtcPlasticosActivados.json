@@ -1,0 +1,47 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "84c6b826-b40f-40fb-a26b-2d6fb10b1c40",
+                "documentation": "vtcPlasticosActivados",
+                "method": "post",
+                "endpoint": "api/EmisorCta/vtcPlasticosActivados",
+                "responses": [
+                    {
+                        "uuid": "22a5213c-980a-4448-bd67-8968697d32f5",
+                        "body": "{\n  \"InfoTran\": {\n    \"IsError\": false,\n    \"ReturnMessage\": \"\",\n    \"ErrorCode\": \"00\",\n    \"IsAuthenicated\": true,\n    \"TipoError\": 5,\n    \"ValidationErrors\": {},\n    \"ErrorLog\": \"\"\n  },\n  \"Model\": [\n    {\n      \"Nombre\": \"ALEJANDRO D CASTRO            \",\n      \"Plastico\": \"41478******1836\",\n      \"Cuenta\": \"414787******1836\",\n      \"Usuario\": \"sistema   \",\n      \"Fecha\": \"13/01/2021\",\n      \"Estado\": \"AC\"\n    },\n    {\n      \"Nombre\": \"DIANA MORALES                 \",\n      \"Plastico\": \"41478******0283\",\n      \"Cuenta\": \"414787******0283\",\n      \"Usuario\": \"usrhomolog\",\n      \"Fecha\": \"19/10/2021\",\n      \"Estado\": \"AC\"\n    },\n    {\n      \"Nombre\": \"DIANA MORALES                 \",\n      \"Plastico\": \"41478******0408\",\n      \"Cuenta\": \"414787******0408\",\n      \"Usuario\": \"JMATAMOROS\",\n      \"Fecha\": \"12/10/2021\",\n      \"Estado\": \"AC\"\n    },\n    {\n      \"Nombre\": \"HAROLD SANDOVAL               \",\n      \"Plastico\": \"41478******0382\",\n      \"Cuenta\": \"414787******0382\",\n      \"Usuario\": \"sistema   \",\n      \"Fecha\": \"13/01/2021\",\n      \"Estado\": \"AC\"\n    },\n    {\n      \"Nombre\": \"LUCAS F SPINOZZI              \",\n      \"Plastico\": \"41478******1869\",\n      \"Cuenta\": \"414787******1869\",\n      \"Usuario\": \"sistema   \",\n      \"Fecha\": \"13/01/2021\",\n      \"Estado\": \"AC\"\n    },\n    {\n      \"Nombre\": \"LUIS MIGUEL                   \",\n      \"Plastico\": \"41478******0226\",\n      \"Cuenta\": \"414787******0226\",\n      \"Usuario\": \"JMATAMOROS\",\n      \"Fecha\": \"09/10/2021\",\n      \"Estado\": \"AC\"\n    },\n    {\n      \"Nombre\": \"MARIELA MATAMOROS             \",\n      \"Plastico\": \"41478******0754\",\n      \"Cuenta\": \"414787******0036\",\n      \"Usuario\": \"sistema   \",\n      \"Fecha\": \"13/01/2021\",\n      \"Estado\": \"AC\"\n    },\n    {\n      \"Nombre\": \"MAYRON ARCEDA                 \",\n      \"Plastico\": \"41478******0077\",\n      \"Cuenta\": \"414787******0036\",\n      \"Usuario\": \"JMATAMOROS\",\n      \"Fecha\": \"08/10/2021\",\n      \"Estado\": \"AC\"\n    },\n    {\n      \"Nombre\": \"PATO LUCAS AAA                \",\n      \"Plastico\": \"41478******2420\",\n      \"Cuenta\": \"414787******2420\",\n      \"Usuario\": \"sistema   \",\n      \"Fecha\": \"13/01/2021\",\n      \"Estado\": \"AC\"\n    },\n    {\n      \"Nombre\": \"ROSALVA MATAMOROS             \",\n      \"Plastico\": \"41478******2255\",\n      \"Cuenta\": \"414787******2255\",\n      \"Usuario\": \"usrhomolog\",\n      \"Fecha\": \"07/01/2022\",\n      \"Estado\": \"AC\"\n    }\n  ]\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path (Non Generated Data)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "dafcc08e-b15f-41c5-8625-e20f380f1faf",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

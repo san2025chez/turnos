@@ -1,0 +1,47 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "7c511816-6807-4918-a437-4bff1d1b73ad",
+                "documentation": "VtcAddUpdRestriccionPlastico",
+                "method": "post",
+                "endpoint": "api/EmisorCta/VtcAddUpdRestriccionPlastico",
+                "responses": [
+                    {
+                        "uuid": "a619e236-47a5-4846-8158-fafdabc64891",
+                        "body": "{\n  \"InfoTran\": {\n    \"IsError\": false,\n    \"ReturnMessage\": \"OK\",\n    \"ErrorCode\": \"0\",\n    \"IsAuthenicated\": true,\n    \"TipoError\": 5,\n    \"ValidationErrors\": {},\n    \"ErrorLog\": \"\"\n  }\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "3906f996-9aaf-48c1-b2a8-89c413588d24",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

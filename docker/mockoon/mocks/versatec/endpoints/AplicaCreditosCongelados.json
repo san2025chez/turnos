@@ -1,0 +1,68 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "e00a8c60-9d09-4a72-b695-aa71f5ff7f57",
+                "documentation": "AplicaCreditosCongelados",
+                "method": "post",
+                "endpoint": "api/EmisorCta/AplicaCreditosCongelados",
+                "responses": [
+                    {
+                        "uuid": "0f5b6964-4970-457e-b2be-a5903922c3fa",
+                        "body": "[\n  {\n    \"ComprobanteInterno\": \"520\",\n    \"InformacionAdicional\": null,\n    \"IdRelacionCliente\": \"1234\",\n    \"MotivoError\": 0,\n    \"Resultado\": 0\n  }\n]",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "c892a40f-d46b-4bad-b860-d38c01086a79",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "88ba0d25-5c06-4205-858b-d7a3d979a003",
+                        "body": "[\n  {\n    \"ComprobanteInterno\": null,\n    \"InformacionAdicional\": null,\n    \"IdRelacionCliente\": \"1234\",\n    \"MotivoError\": 0,\n    \"Resultado\": 0\n  }\n]",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Error case",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [
+                            {
+                                "target": "header",
+                                "modifier": "Valid",
+                                "value": "true",
+                                "operator": "equals"
+                            }
+                        ],
+                        "rulesOperator": "AND",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "f13267da-b98c-4812-86e9-cadf0dddd2e2",
+                "documentation": "VtcObtenerMovimientosCuenta",
+                "method": "post",
+                "endpoint": "api/EmisorCta/VtcObtenerMovimientosCuenta",
+                "responses": [
+                    {
+                        "uuid": "8cd0caf7-d8b0-4650-8bc3-2c2969a5fc21",
+                        "body": "{\n  \"InfoTran\": {\n    \"IsError\": false,\n    \"ReturnMessage\": \"\",\n    \"ErrorCode\": \"00\",\n    \"IsAuthenicated\": true,\n    \"TipoError\": 5,\n    \"ValidationErrors\": {},\n    \"ErrorLog\": \"\"\n  },\n  \"Model\": [\n    {\n      \"Cuenta\": \"414787******2420\",\n      \"Plastico\": \"414787******2420\",\n      \"CodTra\": \"20\",\n      \"Concepto\": \"No Aplica                               \",\n      \"Descripcion\": \"Pago Lucas 5000                         \",\n      \"Moneda\": \"¢     \",\n      \"MtoTra\": \"5000.00\",\n      \"Secuencia\": 1,\n      \"Cliente\": \"PATO LUCAS AAA                \",\n      \"Plan_Descripcion\": \"EMP PROFIT CR 12M 32% PY                          \",\n      \"Plan_\": \"025\",\n      \"Fecha_trx\": \"02/03/2021\",\n      \"Autorizado\": \"000000\",\n      \"codtra_Descripcion\": \"PAGOS                         \",\n      \"Num_Gestion\": 0,\n      \"MCC\": \"6010\",\n      \"TipoComercio\": \"DISPENSAJE DE EFECTIVO EN CAJE          \",\n      \"TIPO_TRANSACCION\": \"LIQUIDADA\"\n    },\n    {\n      \"Cuenta\": \"414787******2420\",\n      \"Plastico\": \"414787******2420\",\n      \"CodTra\": \"20\",\n      \"Concepto\": \"No Aplica                               \",\n      \"Descripcion\": \"Pago Lucas 5000                         \",\n      \"Moneda\": \"¢     \",\n      \"MtoTra\": \"5000.00\",\n      \"Secuencia\": 3,\n      \"Cliente\": \"PATO LUCAS AAA                \",\n      \"Plan_Descripcion\": \"EMP PROFIT CR 12M 32% PY                          \",\n      \"Plan_\": \"025\",\n      \"Fecha_trx\": \"02/03/2021\",\n      \"Autorizado\": \"000000\",\n      \"codtra_Descripcion\": \"PAGOS                         \",\n      \"Num_Gestion\": 0,\n      \"MCC\": \"6010\",\n      \"TipoComercio\": \"DISPENSAJE DE EFECTIVO EN CAJE          \",\n      \"TIPO_TRANSACCION\": \"LIQUIDADA\"\n    }\n  ]\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path (Non generated movements)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "AND",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "73658471-0938-41f5-b174-c1f022d32d76",
+                        "body": "{\n  \"InfoTran\": {\n    \"IsError\": false,\n    \"ReturnMessage\": \"\",\n    \"ErrorCode\": \"00\",\n    \"IsAuthenicated\": true,\n    \"TipoError\": 5,\n    \"ValidationErrors\": {},\n    \"ErrorLog\": \"\"\n  },\n  \"Model\": [\n    {{setVar 'initialDate' (header 'initDate' (now 'MM/dd/yyyy'))}}\n    {{setVar \n      'endDate' \n      (header 'FinalDate' (dateTimeShift\n        date=@initialDate\n        format='MM/dd/yyyy'\n        years=0\n        months=9\n        )\n    )}}\n    {{#repeat (header 'MEMovements' 0)}}\n    {\n      \"Cuenta\": \"414787******{{header 'LastDigitsAccount' '0000'}}\",\n      \"Plastico\": \"414787******{{header 'LastDigitsCard' '0000'}}\",\n      \"CodTra\": \"20\",\n      \"Concepto\": \"No Aplica                               \",\n      \"Descripcion\": \"GENERATED MOVEMENT  IN $            \",\n      \"Moneda\": \"$     \",\n      \"MtoTra\": \"5000.00\",\n      \"Secuencia\": 1,\n      \"Cliente\": \"{{header 'Name' 'DEFAULT NAME'}}                \",\n      \"Plan_Descripcion\": \"EMP PROFIT CR 12M 32% PY                          \",\n      \"Plan_\": \"025\",\n      \"Fecha_trx\": \"{{date initialDate endDate 'dd/MM/yyyy'}}\",\n      \"Autorizado\": \"000000\",\n      \"codtra_Descripcion\": \"PAGOS                         \",\n      \"Num_Gestion\": 0,\n      \"MCC\": \"{{header 'MCC' '0000'}}\",\n      \"TipoComercio\": \"DISPENSAJE DE EFECTIVO EN CAJE          \",\n      \"TIPO_TRANSACCION\": \"LIQUIDADA\"\n    }\n    {{/repeat}}\n    \n    {{#repeat (header 'MLMovement' 0)}}\n    {\n      \"Cuenta\": \"414787******{{header 'LastDigitsAccount' '0000'}}\",\n      \"Plastico\": \"414787******{{header 'LastDigitsCard' '0000'}}\",\n      \"CodTra\": \"20\",\n      \"Concepto\": \"No Aplica                               \",\n      \"Descripcion\": \"GENERATED MOVEMENT  IN ¢            \",\n      \"Moneda\": \"¢     \",\n      \"MtoTra\": \"5000.00\",\n      \"Secuencia\": 1,\n      \"Cliente\": \"{{header 'Name' 'DEFAULT NAME'}}                \",\n      \"Plan_Descripcion\": \"EMP PROFIT CR 12M 32% PY                          \",\n      \"Plan_\": \"025\",\n      \"Fecha_trx\": \"{{date initialDate endDate 'dd/MM/yyyy'}}\",\n      \"Autorizado\": \"000000\",\n      \"codtra_Descripcion\": \"PAGOS                         \",\n      \"Num_Gestion\": 0,\n      \"MCC\": \"{{header 'MCC' '0000'}}\",\n      \"TipoComercio\": \"DISPENSAJE DE EFECTIVO EN CAJE          \",\n      \"TIPO_TRANSACCION\": \"LIQUIDADA\"\n    }\n    {{/repeat}}\n  ]\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path (Generated Movements)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [
+                            {
+                                "target": "header",
+                                "modifier": "Generate",
+                                "value": "true",
+                                "operator": "equals"
+                            }
+                        ],
+                        "rulesOperator": "AND",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "d9febf0a-0f13-4664-aed5-2b790db81045",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

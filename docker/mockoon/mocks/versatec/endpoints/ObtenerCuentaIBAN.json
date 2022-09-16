@@ -1,0 +1,47 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "6dbd30f5-2504-4f9f-a593-dea13dc96c33",
+                "documentation": "ObtenerCuentaIBAN",
+                "method": "post",
+                "endpoint": "api/EmisorCta/ObtenerCuentaIBAN",
+                "responses": [
+                    {
+                        "uuid": "84bc21c6-5c1b-40eb-8611-16656b4b5e29",
+                        "body": "{\n  \"CuentaIBAN\": {\n    \"CuentaIBAN\": \"{{body 'CuentaIBAN' 'CR22042300110000000228'}}\",\n    \"DesProducto\": \"{{header 'DesProducto' 'TARJETA DE CREDITO'}}\",\n    \"Estado\": {{header 'Estado' 1}},\n    \"IdTitular\": \"{{header 'IdTitular' '01-1888-8888'}}    \",\n    \"Moneda\": {{header 'Moneda' 1}},\n    \"NombreTitular\": \"{{header 'NombreTitular' 'PATO LUCAS AAA'}}                \",\n    \"TipoId\": {{header 'TipoId' 0}},\n  },\n  \"Errores\": [\n    {\n      \"Descripcion\": \"Exitoso\",\n      \"NumError\": 0\n    }\n  ],\n  \"Resultado\": true\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path (Conditional Generated)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "d9cd5919-0b44-4a33-8eb4-a7f915454f7d",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

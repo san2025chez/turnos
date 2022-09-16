@@ -1,0 +1,74 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "c9e967bf-f910-42f2-9592-71cd42760c14",
+                "documentation": "SolicitarMonedero",
+                "method": "post",
+                "endpoint": "api/EmisorCta/SolicitarMonedero",
+                "responses": [
+                    {
+                        "uuid": "c8235542-b97b-4d3a-aa03-f846201e30e6",
+                        "body": "{\n  \"SolicitarMonederoResult\": [\n    {\n      \"Resultado\": true,\n      \"DescripcionRechazo\": \"\",\n      \"CodMotivoRechazo\": 0\n    }\n  ]\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "252f0797-26de-414b-bb36-9e90898f39fa",
+                        "body": "{\n  \"SolicitarMonederoResult\": [\n    {\n      \"Resultado\": false,\n      \"DescripcionRechazo\": \"La solicitud ya se encuentra activa para el número de teléfono especificado en la entidad 423.\",\n      \"CodMotivoRechazo\": 83000\n    }\n  ]\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Error case (Solicitud activa)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [
+                            {
+                                "target": "header",
+                                "modifier": "Valid",
+                                "value": "true",
+                                "operator": "equals"
+                            },
+                            {
+                                "target": "header",
+                                "modifier": "Repeated",
+                                "value": "true",
+                                "operator": "equals"
+                            }
+                        ],
+                        "rulesOperator": "AND",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "70e20525-c66b-45b9-8656-cd2502799c1e",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

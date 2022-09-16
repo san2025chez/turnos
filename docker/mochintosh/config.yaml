@@ -1,0 +1,11 @@
+services:
+  - name: Mock
+    hostname: localhost
+    port: 8000
+    managementRoot: __admin  # open http://localhost:8001/__admin it in browser to see the UI  
+    endpoints:
+
+    - path: "/health"
+      headers:
+        Content-type: application/json
+      response: "{status:200}"

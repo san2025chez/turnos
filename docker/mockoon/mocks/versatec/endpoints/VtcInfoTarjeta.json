@@ -1,0 +1,47 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "26b9c9f4-9a5a-4d9c-bb76-116e20bd7051",
+                "documentation": "VtcInfoTarjeta",
+                "method": "post",
+                "endpoint": "api/EmisorCta/VtcInfoTarjeta",
+                "responses": [
+                    {
+                        "uuid": "0377dd9f-5e32-4ebf-ac07-d97a7880ee82",
+                        "body": "{\n  \"InfoTran\": {\n    \"IsError\": false,\n    \"ReturnMessage\": \"\",\n    \"ErrorCode\": \"00\",\n    \"IsAuthenicated\": true,\n    \"TipoError\": 5,\n    \"ValidationErrors\": {},\n    \"ErrorLog\": \"\"\n  },\n  \"Model\": {\n    \"Cuenta\": \"414787******2420\",\n    \"Tarjeta\": \"414787******2420\",\n    \"NombreTh\": \"PATO LUCAS AAA\",\n    \"Estado\": \"PLASTICO NUEVO\",\n    \"Vencimiento\": \"11/01/2025\"\n  }\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path (Non Generated Data)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "849bccb2-0358-457b-982b-141ce8fe538d",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}

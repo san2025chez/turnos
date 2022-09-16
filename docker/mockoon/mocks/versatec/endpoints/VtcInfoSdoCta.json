@@ -1,0 +1,47 @@
+{
+    "source": "mockoon:1.17.0",
+    "data": [
+        {
+            "type": "route",
+            "item": {
+                "uuid": "a780879e-464f-4a84-a9d3-766b0337623f",
+                "documentation": "VtcInfoSdoCta",
+                "method": "post",
+                "endpoint": "api/EmisorCta/VtcInfoSdoCta",
+                "responses": [
+                    {
+                        "uuid": "5906d773-1ffb-4141-afc2-46339de91f0c",
+                        "body": "{\n  \"InfoTran\": {\n    \"IsError\": false,\n    \"ReturnMessage\": \"\",\n    \"ErrorCode\": \"00\",\n    \"IsAuthenicated\": true,\n    \"TipoError\": 5,\n    \"ValidationErrors\": {},\n    \"ErrorLog\": \"\"\n  },\n  \"Model\": {\n    \"NumeroTarjeta\": \"{{header 'EncryptedCard' 'kzFI1cb8FqOFxBjPVFtYl5nDelwfqK3ke0FwvfJfxaE='}}\",\n    \"NumeroCuenta\": \"{{header 'EncryptedAccount' 'kzFI1cb8FqOFxBjPVFtYl7FyPFQP69BOzyjr+uy9g+0='}}\",\n    \"TarjetaTruncada\": \"414787******{{header 'LastDigitsCard' '2420'}}\",\n    \"NombreTarjeta\": \"{{header 'Name' 'PATO LUCAS AAA'}}\",,\n    \"TipoProducto\": \"EMP PROFIT CR 12M 32% PY\",\n    \"FechaCorte\": \"\",\n    \"FechaMaximaPago\": \"\",\n    \"Estado\": \"{{header 'AccountStatus' 'ACTIVA'}}                        \",\n    \"LimCreditoMN\": 1232000,\n    \"LimCreditoME\": 2000,\n    \"SaldoCorteMN\": {{header 'SdoUltCorteMN' -9500.00}},\n    \"SaldoCorteME\": {{header 'SdoUltCorteME' 500.00}},\n    \"PagosMesMN\": 0,\n    \"PagosMesME\": 0,\n    \"ConsumosMesMN\": 0,\n    \"ConsumosMesME\": 0,\n    \"SaldoActualMN\": {{header 'SaldoFinalML' -9500.00}},\n    \"SaldoActualME\": {{header 'SaldoFinalME' 512.40}},\n    \"PagoMinimoMN\": 34437.63,\n    \"PagoMinimoME\": 0,\n    \"PagoContadoMN\": {{header 'SdoUltCorteMN' -9500.00}},\n    \"PagoContadoME\": {{header 'SdoUltCorteME' 500.00}},\n    \"DisponibleMN\": 1241500.00,\n    \"DisponibleME\": 2015.42\n  }\n}",
+                        "latency": 0,
+                        "statusCode": 200,
+                        "label": "Happy path (Generated Data Conditional)",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    },
+                    {
+                        "uuid": "f99e848b-f38f-47a5-8ebb-d75390280c2e",
+                        "body": "{\n\t\"Message\":\"Se ha denegado la autorización para esta solicitud.\"\n}",
+                        "latency": 0,
+                        "statusCode": 401,
+                        "label": "Invalid token",
+                        "headers": [],
+                        "filePath": "",
+                        "sendFileAsBody": false,
+                        "rules": [],
+                        "rulesOperator": "OR",
+                        "disableTemplating": false,
+                        "fallbackTo404": false
+                    }
+                ],
+                "enabled": true,
+                "randomResponse": false,
+                "sequentialResponse": false
+            }
+        }
+    ]
+}
